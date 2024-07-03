@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>quản lý điện thoại</h1>
+<input type="text" id="ma" placeholder="nhập mã điện thoại">
+<input type="text" id="ten" placeholder="nhập tên điện thoại">
+<input type="text" id="hang" placeholder="hãng điện thoại">
+<input type="text" id="gia" placeholder="giá điện thoại">
+<button onclick="addNew()"> Lưu</button>
+<div id="content"></div>
+
+<script>
+    class DienThoai {
+        constructor(ma, ten, hang, gia) {
+            this.ma = ma;git
+            this.ten = ten
+            this.hang = hang
+            this.gia = gia
+        }
+    }
+
+    let ke1 = new DienThoai(2001, "Nokia", "NoKiA", "150");
+    let ke2 = new DienThoai(2002, "SAMSUM", "SAMSUM", "1050");
+    let ke3 = new DienThoai(2003, "IP", "APLE", "1500");
+    let productList = [ke1, ke2, ke3]
+    display(productList)
+
+    function addNew() {
+        let newMa = document.getElementById("ma").value;
+        let newTen = document.getElementById("ten").value;
+        let newHang = document.getElementById("hang").value;
+        let newGia = document.getElementById("gia").value;
+        let newProduct = new DienThoai(newMa, newTen, newHang, newGia);
+        productList.push(newProduct);
+        display(productList);
+        document.getElementById("ma").value = "";
+        document.getElementById("ten").value = "";
+        document.getElementById("hang").value = "";
+        document.getElementById("gia").value = "";
+        alert("các sản phẩm mới được thêm vào là");
+
+    }
+
+    function display(products) {
+        let tableString = `<table >
+                            <tr >
+                            <td>mã sản phẩm</td>
+                            <td>tên sản phẩm</td>
+                            <td>hãng sản phẩm</td>
+                            <td>giá sản phẩm</td>
+  </tr>`;
+        for (let i = 0; i < products.length; i++) {
+            tableString += `<tr>
+                            <td>${products[i].ma}</td>
+                            <td>${products[i].ten}</td>
+                            <td>${products[i].hang}</td>
+                            <td>${products[i].gia}</td>
+
+</tr>`;
+
+        }
+        tableString += `</table>`;
+        document.getElementById("content").innerHTML = tableString;
+    }
+
+
+</script>
+</body>
+</html>

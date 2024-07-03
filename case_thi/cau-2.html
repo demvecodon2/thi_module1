@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let chuoi = prompt("nhập vào chuỗi các kí tự");
+    let upper = "QWERTYUIOPASDFGHJKLZXCVBNM"
+    let count = kiemTraChuoi(chuoi);
+
+    if (count === 0) {
+        alert("trong mảng không có kí tự viết hoa");
+    } else {
+        alert("số chữ được viết hoa là : " + count);
+    }
+
+    function kiemTraChuoi(chuoi) {
+        let count = 0;
+        for (let i = 0; i < chuoi.length; i++) {
+            if (upper.indexOf(chuoi[i]) !== -1) {
+                count++;
+            }
+
+        }
+        return count;
+
+    }
+</script>
+
+</body>
+</html>
